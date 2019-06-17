@@ -1,4 +1,4 @@
-main = print (newton2 5 2)
+main = print (newton2 150 50)
 
 
 
