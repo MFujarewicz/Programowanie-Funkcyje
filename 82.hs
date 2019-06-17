@@ -1,24 +1,20 @@
 import Control.Monad.Writer
---main = print(g 98987)
+main = print(g 97)
 
 f::Int->Int
 
 
 f x = if x `mod` 2 == 0 then x `div` 2 else 3*x+1
 
-h :: Int -> Writer (Sum Int,String) Int
+h x | x == 1 = (1)
+    | otherwise = (f x)
 
-h x 
-    | x == 1 = do
-        tell (1,"dupa")
-        return 1 
+
+g :: Int -> Writer (Sum Int, String) Int  
+g x | x == 1 = do
+        tell (0,"")
+        return 1
     | otherwise = do
-        tell (1,"test")
-        return (f x)
-
-
-g :: Int -> Writer (Sum Int,String) Int
-g x | x == 1 = 1
-    | otherwise = do
-        tell (1, "prosto")
-        return g (h x)
+        result <- g (h x)
+        tell (1, show x ++ " ")
+        return result
