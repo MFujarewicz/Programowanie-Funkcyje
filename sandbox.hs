@@ -1,4 +1,3 @@
-main = print (dec b)
 b = [(3,'a'),(1,'l'),(1,'a'),(1,'m'),(1,'a'),(1,'k'),(3,'o'),(1,'t'),(3,'a')]
 
 suma [] = 0
@@ -31,3 +30,10 @@ test a = test2 (fst a) (snd a)
 
 test2 a b | a == 1 = [b]
           | otherwise = test2 (a-1) b ++ [b]
+
+
+main = print (isBigGang 10)
+
+
+
+isBigGang x = (x > 9, "dupa")
