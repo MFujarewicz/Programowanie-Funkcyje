@@ -1,4 +1,4 @@
-main = print (newton2 150 50)
+main = print (newton3 50000 401)
 
 
 
@@ -8,11 +8,19 @@ newton n k | k>n = error "bad args"
 
 
 
-newton2 n k = round (newtonNaive n k)
 
-newtonNaive n k | k < 0 = 0
-                | k > n = 0
-                | otherwise = factorial n / (factorial k * factorial (n-k))
+newton2 n k | k < 0 = 0
+            | k > n = 0
+            | otherwise = factorial n `div` (factorial k * factorial (n-k))
+
+
+newton3 n k | k < 0 = 0
+            | k > n = 0
+            | otherwise = product [(k+1)..n] `div` (factorial (n-k))
+
+
+
+
 
 
 factorial n = product[1..n]
